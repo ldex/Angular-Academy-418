@@ -9,5 +9,7 @@
             <span class="description">{{ product.description }}</span>
             <span class="price">{{ product.price | currency }}</span>
         </li>
+    } @empty {
+        <p>No product</p>
     }
 </ul>
