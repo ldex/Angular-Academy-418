@@ -1,15 +1,21 @@
 import { Component } from '@angular/core';
 import { Product } from '../../models/product.interface';
 import { CommonModule } from '@angular/common';
+import { ProductDetailComponent } from '../product-detail/product-detail.component';
 
 @Component({
   selector: 'app-product-list',
-  imports: [CommonModule],
+  imports: [CommonModule, ProductDetailComponent],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css'
 })
 export class ProductListComponent {
   title: string = 'Products'
+  selectedProduct: Product;
+
+  onSelect(product: Product) {
+    this.selectedProduct = product;
+  }
 
   products: Product[] = [
     {
