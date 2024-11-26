@@ -10,7 +10,9 @@ export const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'home', component: HomeComponent },
     { path: 'products', children: [
-        { path: '', component: ProductListComponent },
+        { path: '', loadComponent: () =>
+                    import('./products/product-list/product-list.component')
+                    .then(r => r.ProductListComponent) },
         { path: ':id', component: ProductDetailComponent }
     ]},
     { path: 'contact', component: ContactComponent },
