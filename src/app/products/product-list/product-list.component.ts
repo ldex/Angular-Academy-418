@@ -1,14 +1,13 @@
 import { Component, inject } from '@angular/core';
 import { Product } from '../../models/product.interface';
 import { CommonModule } from '@angular/common';
-import { ProductDetailComponent } from '../product-detail/product-detail.component';
 import { ProductService } from '../../services/product.service';
 import { Observable } from 'rxjs';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
-  imports: [CommonModule, ProductDetailComponent],
+  imports: [CommonModule, RouterLink],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css'
 })
