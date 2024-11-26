@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { inject } from '@angular/core';
-import { catchError, delay, Observable, tap } from 'rxjs';
+import { catchError, delay, map, Observable, tap } from 'rxjs';
 import { Product } from '../models/product.interface';
 
 @Injectable({
@@ -16,6 +16,12 @@ export class ProductService {
 
   constructor() {
     this.initProducts()
+  }
+
+  getProductById(id: number): Observable<Product> {
+    return this.products$.pipe(
+      map(products => products.find(product => product.id == id))
+    )
   }
 
   initProducts() {
